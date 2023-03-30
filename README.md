@@ -59,9 +59,10 @@
     tsc -v
 ```
 > 개발 편집기 설치 (Visual Studio Code) : [Download](https://code.visualstudio.com/)
----
-## 시작 (First Programming)
----
+
+
+## 시작 (Start Programming)
+
 ### 프로젝트 폴더 생성 후 편집기(vscode)로 열기  
 ```bash
     cd ProjectParentFolder # (프로젝트를 만들 루트 디렉토리로 이동)
@@ -71,17 +72,18 @@
 ```
 
 ## vscode (Visual Studio Code) 
-> create .ts file -> `hello-world/src` folder -> `index.ts` file  
+> create _**.ts**_ file -> `hello-world/src` folder -> `index.ts` file  
 
 ## index.js
 ```typescript
     console.log('Hello World');
 ```
 
-## `Termianl Open (shortcut)` = CTRL + \`
+## `Termianl Open` ( _**CTRL + \`**_ )
 > **(vscode opened terminal)**
 ```bash
     tsc index.ts
+    node dist/index.js // print out result -> Hello World 
 ```
 
 ## 프로젝트 초기화
@@ -186,24 +188,23 @@ _* tip 1_ : 터미널에서 파일 지정없이 `tsc ` 는 프로젝트 폴더�
 
 # Built-in Types
 
-|JavaScript||
-|---|---|
-|number||
-|string||
-|boolean||
-|null||
-|undefined||
-|object||
-|||
+| JavaScript |
+| ---------- |
+| number     |
+| string     |
+| boolean    |
+| null       |
+| undefined  |
+| object     |
 
-|TypeScript||
-|---|---|
-|any|
-|unknown|
-|never|
-|enum|
-|tuple|
-|object||
+| TypeScript |
+| ---------- |
+| any        |
+| unknown    |
+| never      |
+| enum       |
+| tuple      |
+| object     |
 
 ## 명명규칙 (Namming Convention) : PascalCase
 
@@ -241,6 +242,7 @@ number.push(45);
 
 ## 튜플 (Tuples)  
 ```ts
+
 // 튜플 (Tuples) 기본형식
 // 고정길이 배열
 // Key, Value 특성상 두개의 요소가 가장 권장됨
@@ -253,7 +255,7 @@ usr[1].length;      // string 에 관한 속성만 인텔리센스
 console.log(usr[0]);
 ```
 
-## Enum, 열거형
+## 열거형 (Enum)
 ```ts
 // enum 은 const 로 정의하면 컴파일러가 더욱 최적화된 코드를 생성함
 const enum Size { Small = 's', Medium = 'm', Large = 'l' };   // char 형식
@@ -269,17 +271,142 @@ console.log(mySize);
 
 ## 함수 (Functions) 
 ```ts
+// 기본 형식
+// 파라미터 관련 tsconfig -> "noUnusedParameters": true
+function calclulateTax(income: number, taxYear?: number): number {
+    
+    // let x; // tsconfig -> "noUnusedLocals": true, 사용되지 않은 로컬변수 컴파일 오류
+    
+    // possiable null value -> (taxYear || defaultValue) or 
+    // set default value -> (, taxYear: number = 2022)
+    if ((taxYear || 2022) < 2023) {
+        return income * 1.2;
+    }
+    
+    // default return undefined
+    // 정의 되지 않은 것은 숫자가 아님으로
+    // return 이 누락 (not all return value) 되면 오류 발생
+    // 관련 tsconfig -> "noImplicitReturns": true, 꼼꼼한 리턴이 누락되면 컴파일 경고
+    return income * 1.3; 
+    // undefined
+}
 
+// Caller
+console.log(calclulateTax(10_000, 2023)); // result 13_000
+
+// string interpolation example -> `${variable}`
+console.log(`${calclulateTax(10_000)}`);
 ```
 
-## Objects
+## 타입 (Type)
 ```ts
-
+    let employee: {
+        readonly id: number, // 읽기전용 : readonly 키워드
+        name: string , // optional name?: string, 초기화 생략가능
+        retire: (date: Date) => void
+    } = {
+        id: 1,
+        name: "Viv",
+        retire: (date: Date) => {
+            console.log(date);
+        }
+    };
+    // not optional  ''(null) or undefined 설정가능
+    
+    // caller
+    let emp = employee;
+    emp.retire(new Date(2023, 3, 31));
+    console.log(emp.name);
+    // result
+    // 2023-04-30T15:00:00.000Z
+    // Viv
 ```  
-  
 
+## 고급타입 (Advanced Types)
+```ts
+// Type aliases
+type Employee = {
+    readonly id: number,
+    name: string,
+    retire: (date: Date) => void
+}
 
+let employee: Employee = {
+    id: 2,
+    name: "Viv",
+    retire: (date: Date) => {
+        console.log(date);
+    }
+}
 
+// Unions (|) , Narrowing
+function kgToLbs(weight: number | string): number {
+    // Narrowing
+    if (typeof weight === 'number') {
+        return weight * 2.2;
+    } else {
+        return parseInt(weight) * 2.2;
+    }
+}
 
+console.log(`${kgToLbs(10)}`);
+console.log(`${kgToLbs('10kg')}`);
+
+// Intersections (&)
+let weight: number & string; // default example
+
+type Draggable = {
+    drag: () => void
+}
+
+type Resizable = {
+    resize: () => void
+}
+
+type UIWidget = Draggable & Resizable;
+
+let textBox: UIWidget = {
+    drag: () => { },
+    resize: () => { }
+}
+
+// Literal Types : 값을 제한할 때
+// Literal (exact, specific)
+type Quantity = 50 | 100;
+let quantity: Quantity = 100; // 50 또는 100으로 제한
+type Metric = 'cm' | 'inch';
+
+// Nullable types (유니언 타입 활용)
+function greet(name: string | null | undefined) {
+    if (name)
+        console.log(`${name.toUpperCase()}`);
+    else
+        console.log(`Hola`);
+}
+
+greet(null); // tsconfig 에서 변경가능-> strictNullChecks: false, 그러나 절대 사용하면 안됨
+greet(undefined);
+
+// Optional Chaining
+type Customer = {
+    birthday?: Date
+}
+
+function getCustomer(id: number): Customer | null | undefined {
+    return id === 0 ? null : { birthday: new Date() }
+}
+
+let customer = getCustomer(1);
+
+// Optional property access operator => ?, null 이 아니거나 undefined 가 아닐 때만 실행됨
+console.log(`${customer?.birthday?.getFullYear()}`); //=> 'undefined' result
+
+// Optional element access operator
+// customers?.[0]
+
+// Optional call
+let log: any = null; // or (item: string) => console.log(item)
+log?.('a');
+```
 
 # Ref : [Mosh Hamedani](https://codewithmosh.com)
