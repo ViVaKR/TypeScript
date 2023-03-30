@@ -22,8 +22,7 @@
 > 
 > Dynamically-Typed : JavaScript, Python, Ruby (e.g. let number = 10; -> (런타임에 타입이 변경됨, ok) number = "a")
 
-
-## 타입스크립트 효과 요약 (Benefits)
+## 타입스크립트 장점 (Benefits)
 1. Static typing  
 2. Code completion  
 3. Refactoring  
@@ -409,4 +408,4 @@ let log: any = null; // or (item: string) => console.log(item)
 log?.('a');
 ```
 
-# Ref : [Mosh Hamedani](https://codewithmosh.com)
+#### _**Ref : [Mosh Hamedani](https://codewithmosh.com)**_
