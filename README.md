@@ -1,19 +1,27 @@
 # Typescript
 
-## 자바스크립트의 치명적 단점을 해결하기 위해 마이크로소프트에서 만든 언어
-> A programming language to address shortcoming of JavaScript.   
-> 자바스크립트 + 타입체킹 (JavaScript with Type Checking), 컴파일하는 것만으로 충분함으로, 코드 테스트가 불필요함
-> 코드 완성 (Code completion), 리팩토링 (Refactoring)과 같은 생산성 향상 미래지향적 (New features) 기능 제공함
-> Front End + Back End
-> 자바스크립트의 기능 모두를 포함하고 + More More Benefits
-> 컴파일 필요 : .ts -> Compiler -> .js
-> 큰 규모프로젝트에 적합 : Medium to large projects (TypeScript) vs Simple projects (JavaScript)
+## 자바스크립트의 단점들을 해결하기 위해 마이크로소프트에서 만든 언어
 
-## 자바스크립와 비교
+> A programming language to address shortcoming of JavaScript.   
+> 
+> 자바스크립트 + 타입체크 (JavaScript with Type Checking)
+> 
+> 컴파일하는 것만으로 충분함으로 코드 테스트가 불필요함
+> 
+> 코드 완성 (Code completion), 리팩토링 (Refactoring)과 같은 생산성 향상 미래지향적 (New features) 기능 제공함
+> 
+> Front End + Back End
+> 
+> 자바스크립트의 기능 모두를 포함하고 + More More Benefits
+> 
+> 컴파일 필요 : .ts -> Compiler -> .js
+> 
+> 큰 규모프로젝트에 적합 : Medium to large projects (TypeScript) vs Simple projects (JavaScript)
+> 
 > Statically-Typed : C#, C++, Java (e.g. int number = 0; -> (안됨, not) number = "a";)    
+> 
 > Dynamically-Typed : JavaScript, Python, Ruby (e.g. let number = 10; -> (런타임에 타입이 변경됨, ok) number = "a")
-> 즉, 버르장머리 없이 자라 미래가 없는 아이와 교육받으며 올바르게 자란 가능성 있는 아이와 같은 차이가 있으므로  
->> 자바스크립트는 미래에 집안(프로젝트)에서 항상 치명적인 손실을 발생시킴, 신혼 초 매우 작은 집(프로젝트)에서 100줄 미만 단순 테스트 용
+
 
 ## 타입스크립트 효과 요약 (Benefits)
 1. Static typing  
@@ -176,10 +184,60 @@ _* tip 1_ : 터미널에서 파일 지정없이 `tsc ` 는 프로젝트 폴더�
 }
 ```
 
-Arrays  
+## Built-in Types
+
+|JavaScript||
+|---|---|
+|number||
+|string||
+|boolean||
+|null||
+|undefined||
+|object||
+|||
+
+|TypeScript||
+|---|---|
+|any|
+|unknown|
+|never|
+|enum|
+|tuple|
+|object||
+
+
+## Any Type  
+```ts
+// 선언과 동시에 초기화를 하면, 
+// 타입에 관한 주석을 삭제할 수 있고 삭제하는 것이 보편적임
+let sales: number = 123_456_789;    //== let sales = 123_456_789;
+let course: string = 'TypeScript';  //== let course = 'TypeScript'; 
+let is_published: boolean = true;   //== let is_published = true;
+
+// 초기화 하지 않으면 Any Type
+// 최기화 하지 않을 때에는 타입을 지정하는 것이 보편적입
+let level; 
+level = 1;
+level = 'a'
+
+// 파라미터에 타입 지정이 없을 때
+// tsconfig.json 에서 
+// "noImplicitAny": true -> 애러표시, false -> 표시없음
+function render(document) {
+    console.log(document);
+}
+```
+
+## Arrays  
+```javascript
+
+```
+Tuples  
+Enums  
+Functions  
 Objects  
 Functions  
 Arrow Functions  
-Destructuring
 
 
+# Ref : [Mosh Hamedani](https://codewithmosh.com)

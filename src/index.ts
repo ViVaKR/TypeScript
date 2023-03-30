@@ -1,6 +1,0 @@
-let age: number = 20;
-if (age < 50) {
-    age += 60;
-    
-    console.log(age);
-}
