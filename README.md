@@ -184,7 +184,7 @@ _* tip 1_ : 터미널에서 파일 지정없이 `tsc ` 는 프로젝트 폴더�
 }
 ```
 
-## Built-in Types
+# Built-in Types
 
 |JavaScript||
 |---|---|
@@ -205,6 +205,7 @@ _* tip 1_ : 터미널에서 파일 지정없이 `tsc ` 는 프로젝트 폴더�
 |tuple|
 |object||
 
+## 명명규칙 (Namming Convention) : PascalCase
 
 ## Any Type  
 ```ts
@@ -228,16 +229,57 @@ function render(document) {
 }
 ```
 
-## Arrays  
+## 배열 (Arrays) 
 ```javascript
 
+// 기본형식
+let number: number[] = []; // let 
+number[0] = 5;
+number[1] = 7;
+number.push(45);
 ```
-Tuples  
-Enums  
-Functions  
-Objects  
-Functions  
-Arrow Functions  
+
+## 튜플 (Tuples)  
+```ts
+// 튜플 (Tuples) 기본형식
+// 고정길이 배열
+// Key, Value 특성상 두개의 요소가 가장 권장됨
+// 두개 이상일 때에는 아이템을 특성을 알리 어려움
+let usr: [number, string] = [1, 'ViV'];
+usr[0] = 145;
+usr[0].toString();  // number 에 관한 속성만 인텔리센스
+usr[1].length;      // string 에 관한 속성만 인텔리센스
+
+console.log(usr[0]);
+```
+
+## Enum, 열거형
+```ts
+// enum 은 const 로 정의하면 컴파일러가 더욱 최적화된 코드를 생성함
+const enum Size { Small = 's', Medium = 'm', Large = 'l' };   // char 형식
+const enum Grade { first = 1, second = 2, third = 3 };        // number 형식 (보편적)
+// const small = 1; const medium = 2; const large = 3;  // 일반변수 방식 (비교)
+
+let myGrade = Grade.first;
+let mySize = Size.Medium;
+
+console.log(mySize);
+
+```
+
+## 함수 (Functions) 
+```ts
+
+```
+
+## Objects
+```ts
+
+```  
+  
+
+
+
 
 
 # Ref : [Mosh Hamedani](https://codewithmosh.com)
