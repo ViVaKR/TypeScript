@@ -408,4 +408,4 @@ let log: any = null; // or (item: string) => console.log(item)
 log?.('a');
 ```
 
-#### _**Ref : [Mosh Hamedani](https://codewithmosh.com)**_
+#### _**Reference : [Mosh Hamedani](https://youtu.be/d56mG7DezGs)**_
