@@ -407,5 +407,19 @@ console.log(`${customer?.birthday?.getFullYear()}`); //=> 'undefined' result
 let log: any = null; // or (item: string) => console.log(item)
 log?.('a');
 ```
-
 #### _**Reference : [Mosh Hamedani](https://youtu.be/d56mG7DezGs)**_
+
+
+## 정규표현식 (RegExp)
+
+
+### Flag
+|Flag|Description|
+|---|---|
+|i|대소문자를 구별하지 않음|
+|g|문자열 내의 모든 패턴을 검색|
+|m|문자열의 행이 바뀌어도 검색 진행|
+|s|개행문자(\n) 도 포함|
+|u|유니코드 지원|
+|y|문자 내 특정 위치에서 검색을 진행하는 'sticky' 활성|
+
