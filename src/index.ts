@@ -15,7 +15,6 @@ let tf2 = reg.test('010-11-2222');
 // (정규표현식).exec("문자열")	match메서드와 유사(단, 무조건 첫번째 매칭 결과만 반환)
 // \d : 숫자를 의미하고 {} 안의 숫자는 갯수를 의미
 
-
 reg = /abc/;
 reg = new RegExp(/abc/); // or
 reg = new RegExp("abc");
@@ -53,8 +52,9 @@ str = "abcABC";
 // 대소문자 a 검색
 str.match(/a/gi); // (2) ["a", "A"]
 
-str.match(/a/gi)?.forEach((x, i)=> console.log(`${i} - ${x}`));
+str.match(/a/gi)?.forEach((x, i) => console.log(`${i} - ${x}`));
 str = "Hello World apple banana apple Fine Thanks apple Nice";
+
 // a-zA-Z       : 영어알파벳 
 // ㄱ-ㅎ가-힣    : 한글문자 
 // 0-9          : 숫자
@@ -87,7 +87,7 @@ str = "Hello World apple banana apple Fine Thanks apple Nice";
 
 // ^문자열       : 특정 문자열로 시작, /^https/ -> "https" 로 시작
 
-// 문자열$       : 특정 문자열로 끝남, /kr$/ -> "com" 으로 끝남
+// 문자열$       : 특정 문자열로 끝남, /com$/ -> "com" 으로 끝남
 
 str.match(/banana$/gi)?.forEach((x, i) => console.log(`${i} - ${x}`));
 
@@ -104,7 +104,7 @@ let ko = 'kokokoko'.match(/ko+/); // "ko"
 let koo = 'kooookoooo'.match(/ko+/); // "koooo"
 console.log(`ko+ ${ko}, koo++ ${koo}`)
 
-koo?.forEach(x =>console.log(`koo => ${x}`));
+koo?.forEach(x => console.log(`koo => ${x}`));
 
 // *?           : 없거나 많이 있거나 and 없거나 최대 한개 : 없음, {0}과 동일
 
@@ -119,12 +119,3 @@ koo?.forEach(x =>console.log(`koo => ${x}`));
 // ()          : 그룹화 및 캡쳐
 
 // (?:패턴)     : 그룹화 (캡쳐 X)
-
-
-
-
-
-
-
-
-

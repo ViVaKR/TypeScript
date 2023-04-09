@@ -11,7 +11,7 @@
                 "<node_internals>/**"
             ],
             // "program": "${file}",
-            "program": "${workspaceFolder}/src/index.ts",
+            "program": "${workspaceFolder}/src/datatypes.ts",
             // (추가함)
             // tsconfig.json 을 사용하여 응용프로그램을 빌드하기 위해
             // 타입스크립트 컴파일러를 사용하도록 Visual Studio Code 에 지시하기
