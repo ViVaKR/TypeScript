@@ -9,21 +9,32 @@ const enum Color {
 // tuple (튜플)
 let swapNumbs: [number, number];
 
-function swapNumbers(num1:number, num2:number): [number, number] {
+function swapNumbers(num1: number, num2: number): [number, number] {
     return [num1, num2]
 }
-
 swapNumbs = swapNumbers(10, 35);
 swapNumbs[0];
 // swapNumbs[2]; -> 튜플은 잘못된 인덱스 접근시에, 컴파일 타임에 오류를 표시
-
 let c: Color = Color.Blue;
 let blue = 2;
 console.log(`enum ex : Color.Blue -> ${c}, 2 -> ${blue}`);
 
+let age: number;
+age = 25;
+age = 3.14;
+
+let dob = "456"
+let toInt = parseInt(dob);
+console.log(`To Int : ${toInt}`);
+
+// boolean
+let isValid: boolean = false;
+console.log(`is Valid : ${isValid}`);
+
 // array (배열)
-let empList = ["Viv1", "Viv2", "Viv3"];
-let emp = empList.find(x => x === "Viv3");
+let emplist: string[];
+emplist = ["Viv1", "Viv2", "Viv3"];
+let emp = emplist.find(x => x === "Viv3");
 console.log(`${emp}`);
 
 let numList: Array<number>;
@@ -44,4 +55,9 @@ console.log(result, typeof (result));
 let find = numList.find(x => x === 9);
 console.log(`${find}`);
 
+// any : `"noImplicitAny": true`
+let department: any;
+
+department = "IT";
+department = 10;
 

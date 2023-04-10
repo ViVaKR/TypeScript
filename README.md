@@ -203,17 +203,8 @@ _* tip 1_ : 터미널에서 파일 지정없이 `tsc` 는 프로젝트 폴더내
 }
 ```
 
-## Built-in Data Types
-
-| JavaScript |
-| ---------- |
-| number     |
-| string     |
-| boolean    |
-| null       |
-| undefined  |
-| object     |
----
+## TypeScript Built-in Data Types
+>
 | TypeScript |
 | ---------- |
 | string     |
@@ -227,6 +218,7 @@ _* tip 1_ : 터미널에서 파일 지정없이 `tsc` 는 프로젝트 폴더내
 | tuple      |
 | object     |
 | never      |
+| void       |
 
 ## 명명규칙 (Namming Convention) : PascalCase
 
@@ -303,7 +295,6 @@ console.log(mySize);
 function calclulateTax(income: number, taxYear?: number): number {
     
     // let x; // tsconfig -> "noUnusedLocals": true, 사용되지 않은 로컬변수 컴파일 오류
-    
     // possiable null value -> (taxYear || defaultValue) or 
     // set default value -> (, taxYear: number = 2022)
     if ((taxYear || 2022) < 2023) {
