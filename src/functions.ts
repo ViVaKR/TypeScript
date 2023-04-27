@@ -50,8 +50,9 @@ console.log(`${add2(1000, 100, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)}`)
 // 제너릭 함수
 console.log();
 console.log("== Generic Function ==")
-function getItems<T>(item:T[]) {
+function getItems<T>(item: T[]) {
     return new Array<T>().concat(item);
 }
 
-console.log(getItems(["Hello", "World", "Fine", "Thanks", "And", "You"]));
+console.log(getItems<string>(["Hello", "World", "Fine", "Thanks", "And", "You"]));
+console.log(getItems<number>([1, 2, 3, 4, 5, 6, 7]));
