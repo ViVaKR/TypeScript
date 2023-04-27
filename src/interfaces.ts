@@ -16,6 +16,11 @@ export interface User {
     email: string;
 }
 
+let user: User = { name: "Viv", id: 2, email: "" };
+
+user.name;
+user.email;
+
 export interface Address {
     SiDo: string;
     SiGunGu: string;
@@ -25,11 +30,11 @@ export interface Address {
 }
 
 interface Employee extends User {
-    salary:number;
+    salary: number;
 }
 
-export interface Login  {
+let employee: Employee = { name: "Viv", id: 1, email: "hello@email.com", salary: 1000 };
+
+export interface Login {
     Login(): User;
 }
-
-let user: Employee = { name: "Viv", id: 1, email: "", salary: 1000 };
