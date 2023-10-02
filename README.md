@@ -51,7 +51,7 @@
 
 ```bash
     npm update -g
-    npm install - npm@latest -g
+    npm install npm@latest -g
     npm install -g typescript
     tsc -v # 정상설치여부 확인
 ```
