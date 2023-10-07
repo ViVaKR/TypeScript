@@ -1,5 +1,7 @@
 # Typescript
 
+- Statically typed language
+- Types are checked at compile time
 - Alternative to JavaScript (superset)
 - Allows us to use strict types
 - Supports modern features (arrow functions, let, const)
@@ -38,10 +40,8 @@
 ## Start Programming
 
 ```bash
-    cd ProjectParentFolder # (프로젝트를 만들 루트 디렉토리로 이동)
-    mkdir hello-world # 실재 프로젝트 폴더
-    cd hello-world
-    code .  # Open Visual Studio Code Editor, Current hello-world folder
+    tsc --init
+    
 ```
 
 ## vscode (Visual Studio Code)
