@@ -18,11 +18,6 @@
 4. Shorthand notations  
 
 ```bash
-    # 터미널에서 `HomeBrew` 설치
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-```bash
     brew update && ugrade
     brew install node
 ```
@@ -39,8 +34,6 @@
     npm i -g typescript
     tsc -v
 ```
-
-## 개발 편집기 설치 (Visual Studio Code) : [Download](https://code.visualstudio.com/)
 
 ## Start Programming
 
